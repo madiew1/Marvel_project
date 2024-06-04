@@ -59,6 +59,17 @@ class CharList extends Component {
         })
     }
 
+    itemRefs = [];
+
+    setRef = (ref) => {
+        this.itemRefs.push(ref);
+    }
+
+    focusOnItem = (id) => {
+        this.itemRefs.forEach(item => item.classList.remove('char__item_selected'));
+        this.itemRefs[id].classList.add('char__item_selected');
+        this.itemRefs[id].focus();
+    }
 
     renderItems(arr) {
         const items = arr.map((item) => {
@@ -71,6 +82,7 @@ class CharList extends Component {
                 <li
                     className="char__item"
                     key={item.id}
+                    ref={this.setRef}
                     onClick={() => this.props.onCharSelected(item.id)}>
                     <img src={item.thumbnail} alt={item.name} style={imgStyle} />
                     <div className="char__name">{item.name}</div>
