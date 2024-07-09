@@ -48,6 +48,18 @@
   -webkit-transform: translateY(-8px);
           transform: translateY(-8px);
 }
+.char__item-enter {
+  opacity: 0;
+  -webkit-transform: translateY(20%);
+          transform: translateY(20%);
+}
+.char__item-enter-active {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
 .char__name {
   font-weight: bold;
   font-size: 22px;
